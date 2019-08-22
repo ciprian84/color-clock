@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by ciprian84 (http://jsbin.com/nofovuj/3/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+ <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+  <title>Simple Clock</title>
+<style id="jsbin-css">
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#clock {
+  text-align: center;
+  color: rgba(227, 237, 236, 0.77);
+  position: relative;
+  top: 50%;
+  font-family: 'Orbitron', sans-serif; 
+ /* -webkit-transform: rotate(270deg);*/
+  font-size: 4rem;
+  margin-top: -2rem;
+  
+}
+
+html, body {
+  height: 100%;
+}
+</style>
+</head>
+<body>
+  <div id="clock"></div>
+<script id="jsbin-javascript">
+function colorClock() {
+var date = new Date();
+var hours = date.getHours();
+var minutes = date.getMinutes();
+var seconds = date.getSeconds();
+if (seconds < 10) {
+  seconds = '0' + seconds;
+}
+
+if (minutes < 10) {
+  minutes = '0' + minutes;
+}
+
+if (hours < 10) {
+  hours = '0' + hours;
+}
+
+var clockFace = hours + ' : ' + minutes + ' : ' + seconds;
+
+document.getElementById('clock').innerHTML = clockFace;
+
+  setTimeout(function() {
+  colorClock();
+}, 1000);
+  
+  var hexColor = '#' + hours + minutes + seconds;
+  
+  document.body.style.background = hexColor;
+  
+}
+
+colorClock();
+
+</script>
+</body>
+</html>
